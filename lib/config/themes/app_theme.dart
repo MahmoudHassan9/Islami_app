@@ -1,5 +1,3 @@
-
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -8,6 +6,7 @@ import '../../core/colors_manager.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+    primaryColor: ColorsManager.mainColor,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -29,6 +28,25 @@ class AppTheme {
       showUnselectedLabels: false,
       backgroundColor: ColorsManager.mainColor,
       type: BottomNavigationBarType.fixed,
+    ),
+    textTheme: const TextTheme(
+      labelMedium: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w600,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+      ),
+
+    ),
+    dividerTheme: const DividerThemeData(
+      color: ColorsManager.mainColor,
+      thickness: 3,
     ),
   );
 }

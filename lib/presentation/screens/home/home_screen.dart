@@ -18,10 +18,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = const [
-    RadioTab(),
-    SebhaTab(),
-    HadithTab(),
     QuranTab(),
+    HadithTab(),
+    SebhaTab(),
+    RadioTab(),
     SetingsTab(),
   ];
   int currentIndex = 0;
@@ -55,19 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: ImageIcon(
                 size: 35,
                 AssetImage(
-                  AssetsManager.radioIcon,
+                  AssetsManager.quranIcon,
                 ),
               ),
-              label: 'Radio',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                size: 35,
-                AssetImage(
-                  AssetsManager.sebhaIcon,
-                ),
-              ),
-              label: 'Sebha',
+              label: 'Quran',
             ),
             BottomNavigationBarItem(
               icon: ImageIcon(
@@ -82,10 +73,19 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: ImageIcon(
                 size: 35,
                 AssetImage(
-                  AssetsManager.quranIcon,
+                  AssetsManager.sebhaIcon,
                 ),
               ),
-              label: 'Quran',
+              label: 'Sebha',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                size: 35,
+                AssetImage(
+                  AssetsManager.radioIcon,
+                ),
+              ),
+              label: 'Radio',
             ),
             BottomNavigationBarItem(
               icon: Icon(
