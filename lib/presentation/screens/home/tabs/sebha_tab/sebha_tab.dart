@@ -21,6 +21,7 @@ class _SebhaTabState extends State<SebhaTab> {
     'الله اكبر',
   ];
   double turns = 0;
+  int time = 400;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class _SebhaTabState extends State<SebhaTab> {
             onTap: sebhaClick,
             child: AnimatedRotation(
               turns: turns,
-              duration: const Duration(
-                seconds: 1,
+              duration: Duration(
+                milliseconds: time,
               ),
               child: Image.asset(
                 AssetsManager.sebhaHeaderImage,
@@ -89,15 +90,21 @@ class _SebhaTabState extends State<SebhaTab> {
   }
 
   void sebhaClick() {
+    Feedback.forTap(context);
     turns += 1 / 33;
     if (sebhaCounter == 33) {
       sebhaCounter = 0;
       zekrCounter++;
+      turns = 0;
+      time = 200;
+    } else {
+      time = 400;
     }
     if (zekrCounter == 3) {
       zekrCounter = 0;
     }
     sebhaCounter++;
+
     setState(() {});
   }
 }

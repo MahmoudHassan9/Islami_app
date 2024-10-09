@@ -42,24 +42,29 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
                 ),
               )
             : SingleChildScrollView(
-                child: Column(
-                  children: [
-                    if (verses.length != 7 && verses.length != 129)
-                      const SizedBox(
-                        width: double.infinity,
-                        child: SuraVersesWidget(
-                          verse: 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                  ),
+                  child: Column(
+                    children: [
+                      if (verses.length != 7 && verses.length != 129)
+                        const SizedBox(
+                          width: double.infinity,
+                          child: SuraVersesWidget(
+                            verse: 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
+                          ),
                         ),
+                      ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) => SuraVersesWidget(
+                          verse: verses[index],
+                        ),
+                        itemCount: verses.length,
                       ),
-                    ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) => SuraVersesWidget(
-                        verse: verses[index],
-                      ),
-                      itemCount: verses.length,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
       ),

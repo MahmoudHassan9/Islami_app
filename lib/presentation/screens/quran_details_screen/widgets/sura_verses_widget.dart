@@ -9,15 +9,16 @@ class SuraVersesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 14,
+      elevation: 12,
+      shadowColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
       color: Theme.of(context).primaryColor.withOpacity(0.7),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 8,
-          horizontal: 4,
+          vertical: 12,
+          horizontal: 8,
         ),
         child: Text(
           verse,
