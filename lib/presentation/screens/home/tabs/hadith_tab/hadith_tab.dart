@@ -57,10 +57,14 @@ class _HadithTabState extends State<HadithTab> {
       ahadithList.add(HadithModel(
         name: name,
         content: content,
+        index: ahadithList.isEmpty ? 0 : ahadithList.length,
+        ahadithList: ahadithList
       ));
       setState(() {});
     }
+    ahadithList.removeLast();
   }
+
 }
 
 class ElAhadithTitle extends StatelessWidget {
@@ -95,10 +99,14 @@ class ElAhadithTitle extends StatelessWidget {
 class HadithModel {
   String name;
   String content;
+  int index;
+  List<HadithModel> ahadithList;
 
   HadithModel({
     required this.name,
     required this.content,
+    required this.index,
+    required this.ahadithList,
   });
 }
 

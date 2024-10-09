@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami_app/core/routes_manager.dart';
 import 'package:islami_app/presentation/screens/home/tabs/hadith_tab/hadith_tab.dart';
 
 import '../../../core/assets_manager.dart';
@@ -30,53 +31,115 @@ class HadithDetailsScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: 8,
           ),
-          child: Center(
-            child: Card(
-              shadowColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              color: Theme.of(context).primaryColor.withOpacity(0.7),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 8,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Card(
+                  shadowColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  color: Theme.of(context).primaryColor.withOpacity(0.7),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 8,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          model.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelSmall
+                              ?.copyWith(color: Colors.white),
+                        ),
+                        const Divider(
+                          color: Colors.white,
+                          thickness: 2,
+                          indent: 28,
+                          endIndent: 28,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 28,
+                          ),
+                          child: Text(
+                            model.content,
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20, top: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        model.name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall
-                            ?.copyWith(color: Colors.white),
-                      ),
-                      const Divider(
-                        color: Colors.white,
-                        thickness: 2,
-                        indent: 28,
-                        endIndent: 28,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 12,
-                          horizontal: 28,
+                      if (model.index != 0)
+                        ArrowWidget(
+                          icon: Icons.arrow_back_ios_outlined,
+                          index: model.index,
+                          ahaditList: model.ahadithList,
+                          next: false,
                         ),
-                        child: Text(
-                          model.content,
-                          textAlign: TextAlign.center,
-                          textDirection: TextDirection.rtl,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
+                      const SizedBox(
+                        width: 40,
                       ),
+                      if (model.index != 49)
+                        ArrowWidget(
+                          icon: Icons.arrow_forward_ios_outlined,
+                          index: model.index,
+                          ahaditList: model.ahadithList,
+                          next: true,
+                        ),
                     ],
                   ),
                 ),
-              ),
+              ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ArrowWidget extends StatelessWidget {
+  const ArrowWidget({
+    super.key,
+    required this.icon,
+    required this.index,
+    required this.ahaditList,
+    required this.next,
+  });
+
+  final IconData icon;
+  final int index;
+  final List<HadithModel> ahaditList;
+  final bool next;
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.7),
+      radius: 24,
+      child: IconButton(
+        onPressed: () {
+          Navigator.pushReplacementNamed(
+              context, RoutesManager.hadithDetailsRoute,
+              arguments: ahaditList[next ? index + 1 : index - 1]);
+        },
+        icon: Icon(
+          icon,
+          color: Colors.white,
         ),
       ),
     );
