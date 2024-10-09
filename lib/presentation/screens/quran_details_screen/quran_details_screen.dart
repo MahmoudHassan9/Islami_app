@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/core/assets_manager.dart';
 import 'package:islami_app/core/colors_manager.dart';
+import 'package:islami_app/core/constants/constants.dart';
+import 'package:islami_app/core/routes_manager.dart';
+import 'package:islami_app/presentation/screens/hadith_details_screen/widgets/arrow_widget.dart';
 import 'package:islami_app/presentation/screens/home/tabs/quran_tab/quran_tab.dart';
 import 'package:islami_app/presentation/screens/quran_details_screen/widgets/sura_verses_widget.dart';
 
@@ -34,6 +37,28 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
           title: Text(
             model.name,
           ),
+          actions: [
+            if (model.index != 0)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ArrowWidget(
+                  icon: Icons.arrow_back_ios_new_outlined,
+                  index: model.index,
+                  next: false,
+                  model: model,
+                ),
+              ),
+            if (model.index != 113)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ArrowWidget(
+                  icon: Icons.arrow_forward_ios_outlined,
+                  index: model.index,
+                  next: true,
+                  model: model,
+                ),
+              ),
+          ],
         ),
         body: verses.isEmpty
             ? Center(
@@ -73,6 +98,7 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
 
   Future<void> readQuranFile(int index) async {
     String fileContent = await rootBundle.loadString('assets/files/$index.txt');
+
     verses = fileContent.trim().split('\n');
     setState(() {});
   }

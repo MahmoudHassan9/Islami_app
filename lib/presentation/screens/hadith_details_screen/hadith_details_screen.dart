@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/routes_manager.dart';
+import 'package:islami_app/presentation/screens/hadith_details_screen/widgets/arrow_widget.dart';
 import 'package:islami_app/presentation/screens/home/tabs/hadith_tab/hadith_tab.dart';
 
 import '../../../core/assets_manager.dart';
@@ -112,36 +113,3 @@ class HadithDetailsScreen extends StatelessWidget {
   }
 }
 
-class ArrowWidget extends StatelessWidget {
-  const ArrowWidget({
-    super.key,
-    required this.icon,
-    required this.index,
-    required this.ahaditList,
-    required this.next,
-  });
-
-  final IconData icon;
-  final int index;
-  final List<HadithModel> ahaditList;
-  final bool next;
-
-  @override
-  Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.7),
-      radius: 24,
-      child: IconButton(
-        onPressed: () {
-          Navigator.pushReplacementNamed(
-              context, RoutesManager.hadithDetailsRoute,
-              arguments: ahaditList[next ? index + 1 : index - 1]);
-        },
-        icon: Icon(
-          icon,
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
-}
