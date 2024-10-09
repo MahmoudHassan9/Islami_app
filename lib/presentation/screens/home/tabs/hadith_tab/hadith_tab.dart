@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/core/routes_manager.dart';
+import 'package:islami_app/presentation/screens/home/tabs/hadith_tab/widgets/el_ahadith_title.dart';
+import 'package:islami_app/presentation/screens/home/tabs/hadith_tab/widgets/hadith_name_widget.dart';
 
 import '../../../../../core/assets_manager.dart';
 
@@ -55,44 +57,13 @@ class _HadithTabState extends State<HadithTab> {
       hadithLines.removeAt(0);
       String content = hadithLines.join('\n');
       ahadithList.add(HadithModel(
-        name: name,
-        content: content,
-        index: ahadithList.isEmpty ? 0 : ahadithList.length,
-        ahadithList: ahadithList
-      ));
+          name: name,
+          content: content,
+          index: ahadithList.isEmpty ? 0 : ahadithList.length,
+          ahadithList: ahadithList));
       setState(() {});
     }
     ahadithList.removeLast();
-  }
-
-}
-
-class ElAhadithTitle extends StatelessWidget {
-  const ElAhadithTitle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
-      ),
-      decoration: BoxDecoration(
-        border: Border.symmetric(
-          horizontal: BorderSide(
-            color: Theme.of(context).primaryColor,
-            width: 3,
-          ),
-        ),
-      ),
-      child: Text(
-        'EL-Ahadith',
-        style: Theme.of(context).textTheme.labelMedium,
-      ),
-    );
   }
 }
 
@@ -108,30 +79,4 @@ class HadithModel {
     required this.index,
     required this.ahadithList,
   });
-}
-
-class HadithNameWidget extends StatelessWidget {
-  const HadithNameWidget({super.key, required this.model});
-
-  final HadithModel model;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          RoutesManager.hadithDetailsRoute,
-          arguments: model,
-        );
-      },
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          model.name,
-          style: Theme.of(context).textTheme.labelSmall,
-        ),
-      ),
-    );
-  }
 }
