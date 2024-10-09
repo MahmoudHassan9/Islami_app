@@ -41,6 +41,7 @@ class AppTheme {
       bodyMedium: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w400,
+        color: Colors.white,
       ),
 
     ),
