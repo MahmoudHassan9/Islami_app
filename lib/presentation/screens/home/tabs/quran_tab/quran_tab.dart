@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/presentation/screens/home/tabs/quran_tab/widgets/name_and_number_title.dart';
+import 'package:islami_app/presentation/screens/home/tabs/quran_tab/widgets/salah_card_table.dart';
 import 'package:islami_app/presentation/screens/home/tabs/quran_tab/widgets/sura_name_and_verses_number_list.dart';
 
 import '../../../../../core/assets_manager.dart';
@@ -18,6 +19,10 @@ class QuranTab extends StatelessWidget {
           child: Image.asset(
             AssetsManager.quranHeaderImage,
           ),
+        ),
+        const SalahCardTable(),
+        const SizedBox(
+          height: 10,
         ),
         Expanded(
           flex: 70,
@@ -58,3 +63,8 @@ class SuraModel {
     required this.index,
   });
 }
+
+
+
+
+
