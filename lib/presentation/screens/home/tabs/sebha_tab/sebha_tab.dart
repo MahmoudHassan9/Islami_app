@@ -29,17 +29,38 @@ class _SebhaTabState extends State<SebhaTab> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          child: GestureDetector(
-            onTap: sebhaClick,
-            child: AnimatedRotation(
-              turns: turns,
-              duration: Duration(
-                milliseconds: time,
+          child: Stack(
+            children: [
+              Positioned(
+                bottom: 0,
+                top: 40,
+                left: 10,
+                right: 10,
+                child: GestureDetector(
+                  onTap: sebhaClick,
+                  child: AnimatedRotation(
+                    turns: turns,
+                    duration: Duration(
+                      milliseconds: time,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        AssetsManager.sebhaHeaderImage,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              child: Image.asset(
-                AssetsManager.sebhaHeaderImage,
+              Positioned(
+                height: 105,
+                width: 73,
+                left: 192,
+                top: 0,
+                child: Image.asset(
+                  AssetsManager.headOfSebha,
+                ),
               ),
-            ),
+            ],
           ),
         ),
         Expanded(

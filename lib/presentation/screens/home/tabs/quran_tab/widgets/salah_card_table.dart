@@ -13,7 +13,7 @@ class SalahCardTable extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       color: Theme.of(context).primaryColor.withOpacity(0.7),
-      child:  Padding(
+      child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 12,
           horizontal: 8,
@@ -21,7 +21,8 @@ class SalahCardTable extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Salah time',style: Theme.of(context).textTheme.labelMedium,
+              'Salah time',
+              style: Theme.of(context).textTheme.labelMedium,
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
