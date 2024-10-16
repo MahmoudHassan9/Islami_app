@@ -6,7 +6,7 @@ import 'package:islami_app/presentation/screens/home/tabs/quran_tab/quran_tab.da
 import 'package:islami_app/presentation/screens/home/tabs/radio_tab/radio_tab.dart';
 import 'package:islami_app/presentation/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islami_app/presentation/screens/home/tabs/settings_tab/settings_tab.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../core/assets_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -39,8 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Isalmi',
+          title: Text(
+            AppLocalizations.of(context)!.islamy,
           ),
         ),
         body: tabs[currentIndex],
@@ -50,49 +50,49 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {});
           },
           currentIndex: currentIndex,
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 size: 35,
                 AssetImage(
                   AssetsManager.quranIcon,
                 ),
               ),
-              label: 'Quran',
+              label: AppLocalizations.of(context)!.quranTab,
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 size: 35,
                 AssetImage(
                   AssetsManager.hadithIcon,
                 ),
               ),
-              label: 'Hadith',
+              label: AppLocalizations.of(context)!.hadithTab,
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 size: 35,
                 AssetImage(
                   AssetsManager.sebhaIcon,
                 ),
               ),
-              label: 'Sebha',
+              label:  AppLocalizations.of(context)!.sebhaTab,
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 size: 35,
                 AssetImage(
                   AssetsManager.radioIcon,
                 ),
               ),
-              label: 'Radio',
+              label:  AppLocalizations.of(context)!.radioTab,
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 Icons.settings,
                 size: 35,
               ),
-              label: 'Settings',
+              label: AppLocalizations.of(context)!.settingsTab,
             ),
           ],
         ),

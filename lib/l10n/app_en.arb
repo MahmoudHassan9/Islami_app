@@ -1,0 +1,20 @@
+{
+    "islamy":"Islamy",
+    "quranTab":"Quran",
+    "hadithTab":"Hadith",
+    "sebhaTab":"Sebha",
+    "radioTab":"Radio",
+    "settingsTab":"Settings",
+    "suraName":"Sura Name",
+    "versesNumber":"Verses Number",
+    "fagr":"Fagr",
+    "zuhr":"Zuhr",
+    "asr":"Asr",
+    "maghrib":"Maghrib",
+    "ashaa":"Ashaa",
+    "salahTime":"Salah Time",
+    "elAhadith":"El-Ahadith",
+    "numberOfTasbeeh":"Number Of Tasbeeh",
+    "language":"Language",
+    "darkTheme":"Dark Theme"
+}
