@@ -1,0 +1,20 @@
+{
+    "islamy":"إسلامي",
+    "quranTab":"القران",
+    "hadithTab":"الجديث",
+    "sebhaTab":"السبحة",
+    "radioTab":"الراديو",
+    "settingsTab":"الاعدادات",
+    "suraName":"إسم الصورة",
+    "versesNumber":"عدد الأيات",
+    "fagr":"الفجر",
+    "zuhr":"الظهر",
+    "asr":"العصر",
+    "maghrib":"المغرب",
+    "ashaa":"العشاء",
+    "salahTime":"الصلوات",
+    "elAhadith":"الأحاديث",
+    "numberOfTasbeeh":"عدد التسابيح",
+    "language":"اللغة",
+    "darkTheme":"داكن السمة"
+}

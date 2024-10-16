@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class NameAndNumberTitle extends StatelessWidget {
   const NameAndNumberTitle({super.key});
 
@@ -21,14 +21,14 @@ class NameAndNumberTitle extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                'Sura Name',
+                AppLocalizations.of(context)!.suraName,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
             ),
             Expanded(
               child: Text(
-                'Verses Number',
+                AppLocalizations.of(context)!.versesNumber,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),

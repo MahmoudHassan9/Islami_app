@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SetingsTab extends StatefulWidget {
   const SetingsTab({super.key});
 
@@ -24,7 +24,7 @@ class _SetingsTabState extends State<SetingsTab> {
           BuildSettingWidget(
             widget: SwitchListTile(
               title: Text(
-                'Dark Theme',
+                AppLocalizations.of(context)!.darkTheme,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       fontSize: 22,
                     ),
@@ -49,7 +49,7 @@ class _SetingsTabState extends State<SetingsTab> {
             paddingVertical: 8,
             widget: ListTile(
               leading: Text(
-                'Language',
+                AppLocalizations.of(context)!.language,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       fontSize: 22,
                     ),

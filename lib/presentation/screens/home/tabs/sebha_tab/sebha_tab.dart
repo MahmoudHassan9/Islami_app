@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/assets_manager.dart';
 import 'package:islami_app/core/colors_manager.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
 
@@ -67,7 +67,7 @@ class _SebhaTabState extends State<SebhaTab> {
           child: Column(
             children: [
               Text(
-                'Number of Tasbeehs',
+                AppLocalizations.of(context)!.numberOfTasbeeh,
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               const SizedBox(

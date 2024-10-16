@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ElAhadithTitle extends StatelessWidget {
   const ElAhadithTitle({
     super.key,
@@ -23,7 +23,7 @@ class ElAhadithTitle extends StatelessWidget {
         ),
       ),
       child: Text(
-        'EL-Ahadith',
+        AppLocalizations.of(context)!.elAhadith,
         style: Theme.of(context).textTheme.labelMedium,
       ),
     );
