@@ -7,6 +7,8 @@ import 'package:islami_app/presentation/screens/home/tabs/radio_tab/radio_tab.da
 import 'package:islami_app/presentation/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islami_app/presentation/screens/home/tabs/settings_tab/settings_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/providers/themeing_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../core/assets_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,11 +30,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeingProvider provider = Provider.of(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            AssetsManager.lightBackground,
+            provider.isDark
+                ? AssetsManager.darkBackground
+                : AssetsManager.lightBackground,
           ),
           fit: BoxFit.cover,
         ),
@@ -50,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {});
           },
           currentIndex: currentIndex,
-          items:  [
+          items: [
             BottomNavigationBarItem(
               icon: const ImageIcon(
                 size: 35,
@@ -76,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   AssetsManager.sebhaIcon,
                 ),
               ),
-              label:  AppLocalizations.of(context)!.sebhaTab,
+              label: AppLocalizations.of(context)!.sebhaTab,
             ),
             BottomNavigationBarItem(
               icon: const ImageIcon(
@@ -85,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   AssetsManager.radioIcon,
                 ),
               ),
-              label:  AppLocalizations.of(context)!.radioTab,
+              label: AppLocalizations.of(context)!.radioTab,
             ),
             BottomNavigationBarItem(
               icon: const Icon(

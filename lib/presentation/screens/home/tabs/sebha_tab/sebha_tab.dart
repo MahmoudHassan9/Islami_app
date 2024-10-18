@@ -46,6 +46,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     child: Center(
                       child: Image.asset(
                         AssetsManager.sebhaHeaderImage,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),
@@ -58,6 +59,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 top: 0,
                 child: Image.asset(
                   AssetsManager.headOfSebha,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],

@@ -9,7 +9,7 @@ class SuraVersesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 12,
+      elevation: 0,
       shadowColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -24,7 +24,9 @@ class SuraVersesWidget extends StatelessWidget {
           verse,
           textAlign: TextAlign.center,
           textDirection: TextDirection.rtl,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Colors.white,
+              ),
         ),
       ),
     );

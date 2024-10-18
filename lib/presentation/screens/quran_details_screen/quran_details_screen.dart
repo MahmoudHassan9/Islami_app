@@ -8,6 +8,9 @@ import 'package:islami_app/core/routes_manager.dart';
 import 'package:islami_app/presentation/screens/hadith_details_screen/widgets/arrow_widget.dart';
 import 'package:islami_app/presentation/screens/home/tabs/quran_tab/quran_tab.dart';
 import 'package:islami_app/presentation/screens/quran_details_screen/widgets/sura_verses_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/themeing_provider.dart';
 
 class QuranDetailsScreen extends StatefulWidget {
   const QuranDetailsScreen({super.key});
@@ -22,12 +25,16 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     SuraModel model = ModalRoute.of(context)?.settings.arguments as SuraModel;
+    ThemeingProvider provider = Provider.of(context);
+
     if (verses.isEmpty) readQuranFile(model.index + 1);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            AssetsManager.lightBackground,
+            provider.isDark
+                ? AssetsManager.darkBackground
+                : AssetsManager.lightBackground,
           ),
           fit: BoxFit.cover,
         ),
